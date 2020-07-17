@@ -29,3 +29,23 @@ n = np.array([2,3,9],[1,4,6])
 
 torch_from_numpy = tch.from_numpy(n)
 numpy_from_torch = t.numpy()
+
+
+# Initialize x, y and z to values 4, -3 and 5
+x = torch.tensor(90., requires_grad=True)
+y = torch.tensor(-51., requires_grad=True)
+z = torch.tensor(12., requires_grad=True)
+
+# Set q to sum of x and y, set f to product of q with z
+t = x + y
+f = t * z
+
+# Compute the derivatives
+f.backward()
+
+# Print the gradients
+print2("Gradient of x is: " + str(x.grad))
+print2("Gradient of y is: " + str(y.grad))
+print2("Gradient of z is: " + str(z.grad))
+print2("Gradient of t is: " + str(t.grad))
+print2("Gradient of f is: " + str(f.grad))
