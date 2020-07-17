@@ -15,4 +15,4 @@ c = a.matmul(b)   # c = a.dot(b)
 
 # Element by element multiplication
 
-d = a * b   # d = a.multiply(b)
+d = a * b   # d = np.multiply(a, b)
