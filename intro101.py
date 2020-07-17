@@ -22,3 +22,10 @@ d = a * b   # d = np.multiply(a, b)
 z = tch.zeros(4, 5)  # z = np.zeros(4, 5)
 oo = tch.ones(2, 3)  # oo = np.ones(2, 3)
 idtt = tch.eye(4)   # idtt = np.identity(4)
+
+# torch-numpy interchange
+t = tch.tensor([4,5,7],[2,9,6])
+n = np.array([2,3,9],[1,4,6])
+
+torch_from_numpy = tch.from_numpy(n)
+numpy_from_torch = t.numpy()
