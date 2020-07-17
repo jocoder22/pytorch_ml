@@ -16,3 +16,9 @@ c = a.matmul(b)   # c = a.dot(b)
 # Element by element multiplication
 
 d = a * b   # d = np.multiply(a, b)
+
+
+# Zeroes, ones and identity matrix
+z = tch.zeros(4, 5)  # z = np.zeros(4, 5)
+oo = tch.ones(2, 3)  # oo = np.ones(2, 3)
+idtt = tch.eye(4)   # idtt = np.identity(4)
