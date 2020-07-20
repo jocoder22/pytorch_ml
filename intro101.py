@@ -10,13 +10,14 @@ b = torch.rand((3,2))  # b = np.random.randn(3,2)
 print2(a.shape)  # print2(a.shape, a.size())
 
 # Matrix multiplication
-a = torch.rand((3, 3))
-b = torch.rand((3, 3))
+a = torch.rand(4, 3)
+b = torch.rand(3, 4)
 
 c = torch.matmul(a, b)   # c = a.dot(b)
 
 # Element by element multiplication
-d = a * b   # d = np.multiply(a, b)
+aa = torch.rand(3, 4)
+d = aa * b   # d = np.multiply(a, b)
 
 print2(c, d)
 
@@ -33,6 +34,8 @@ n = np.array([[2,3,9],[1,4,6]])
 
 torch_from_numpy = torch.from_numpy(n)
 numpy_from_torch = t.numpy()
+
+print2(torch_from_numpy, numpy_from_torch)
 
 
 # Initialize x, y and z to values 4, -3 and 5
