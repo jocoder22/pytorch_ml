@@ -39,3 +39,7 @@ prob = sigmoid_activation(touch.sum(features * weights) + bias)
 prob2 = sigmoid_activation(torch.mm(features, weights.view(5,1)) + bias)
 
 print2(prob, prob2)
+
+
+## y = f2(f1(xW1)W2)
+
