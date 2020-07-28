@@ -20,3 +20,12 @@ def sigmoid_activation(x):
   y = 1/(1 + torch.exp(-x))
   
   return y
+
+# generate features vector
+features = torch.randn((1,10))
+
+# generate weights
+weights = torch.randn_like(features)
+
+# generate bias
+bias = torch.randn((1,1))
