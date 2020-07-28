@@ -30,3 +30,5 @@ hiddenlayer_output = sigmoid_activation(torch.mm(features,features_weights) +
                                           features_bias))
 y = sigmoid_activation(torch.mm(hiddenlayer_output, hiddenlayer_bias) + hiddenlayer_bias)
 
+print2(y)
+
