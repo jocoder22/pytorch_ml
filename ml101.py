@@ -29,3 +29,8 @@ weights = torch.randn_like(features)
 
 # generate bias
 bias = torch.randn((1,1))
+
+
+# computer the prediction
+prob = sigmoid_activation(touch.sum(features * weights) + bias)
+# also can do sigmoid_activation((features * weights).sum() + bias)
