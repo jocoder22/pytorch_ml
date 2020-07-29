@@ -145,3 +145,6 @@ print2(loss)
 
 # compute the gradient descent and backward pass
 loss.backward()
+
+# initialize the optimizer
+optimin = optim.SGD(model.parameters(), lr=0.01)
