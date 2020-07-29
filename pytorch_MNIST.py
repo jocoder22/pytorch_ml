@@ -33,6 +33,26 @@ plt.show()
 flat1d_img = img.view(img.shape[0], -1)
 
 # create model parameters
+input_size = flat1d_img.shape[1]
+n_hiddenlayers = 256
+n_output = 10
+
+# create weights
+feature_weights = torch.randn((input_size, n_hiddenlayers))
+hiddenlayer_weights = torch.randn((n_hiddenlayers, n_output))
+
+# create biases
+feature_bias = torch.randn((1, n_hiddenlayers))
+hiddenlayer_bias = torch.randn((1, n_output))
+
+
+## y = f2(f1(xW1)W2)
+
+h = sigmoid_activation(torch.mm(flat1d_img,features_weights) + 
+                                          features_bias))
+y = sigmoid_activation(torch.mm(h, hiddenlayer_bias) + hiddenlayer_bias)
+
+print2(y)
                                   
                 
                                    
