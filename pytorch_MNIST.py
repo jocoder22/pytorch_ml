@@ -75,7 +75,7 @@ print2(y)
 # apply softmax to get the probabilities
 prob = softmax_activation(y)
 
-print2(prob.shape, type(prob), prob.sum(dim=1))
+print2(prob.shape, type(prob), prob.sum(dim=1), torch.sum(prob, dim=1)
                                   
                 
                                    
