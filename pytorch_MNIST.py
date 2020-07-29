@@ -67,6 +67,11 @@ h = sigmoid_activation(torch.mm(flat1d_img,features_weights) +
 y = sigmoid_activation(torch.mm(h, hiddenlayer_bias) + hiddenlayer_bias)
 
 print2(y)
+
+# apply softmax to get the probabilities
+prob = softmax_activation(y)
+
+print2(prob.shape, type(prob), prob.sum(dim=1))
                                   
                 
                                    
