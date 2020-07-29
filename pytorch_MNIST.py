@@ -116,35 +116,26 @@ class MyNeuroNetwork(nn.Module):
   
 model = MyNeuroNetwork()
 print(model)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-       
-                                  
-                
-                                   
-                           
+
+# create the feed-forward network
+model = nn.Sequential(nn.Linear(784, 128),
+                      nn.ReLU(),
+                      nn.Linear(128, 64),
+                      nn.ReLU(),
+                      nn.Linear(64, 10))
+
+# define loss function
+criterion = nn.CrossEntropyloss()
+
+# create an iterator to read the dataset                                
+img, labels = next(iterloader)
+
+# Flatten the 2D images to 1D images
+flat1d_img = img.view(img.shape[0], -1)
+
+# forward pass, with flattened input data
+loggit = model(flat1D_img)
+
+# compute the loss
+loss = criterion(loggit, labels)
+print2(loss)
