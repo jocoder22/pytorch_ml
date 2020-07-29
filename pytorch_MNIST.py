@@ -24,6 +24,10 @@ iterloader = iter(trainloader)
 img, labels = iterloader.next()
 
 print2(type(img), type(labels), img.shape, labels.shape)
+
+# display the image
+plt.imshow(img[1].numpy().squeeze(), cmap="blue_r")
+plt.show()
                                   
                 
                                    
