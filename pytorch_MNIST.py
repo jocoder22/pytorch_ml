@@ -147,7 +147,7 @@ print2(loss)
 loss.backward()
 
 # initialize the optimizer
-optimin = optim.SGD(model.parameters(), lr=0.01)
+optimin = optim.SGD(model.parameters(), lr=0.02)
 
 #
 # Using model2
@@ -174,14 +174,17 @@ optimin.step()
 ########################################################################################
 ########################################################################################
 epochs = 6
+
 for epo in range(epochs):
   iterm_loss = 0
   for img, labels in iterloader:
     img.view_(img.shape[0], -1)
+    
+    # clear the gradients
     optimin.zero_grad()
 
     # compute the forward pass
-    output = model2.forward(img)
+    output = model.forward(img)
 
     # compute loss
     loss = criterion(output, labels)
@@ -189,7 +192,22 @@ for epo in range(epochs):
     # compute backward pass
     loss.backward()
     
-    iterm_loss += loss.item()
-  else:
-    print2(f'Training loss: {item_loss/len(iterloader}')
+    # update weights
+    optimin.step()
     
+    iterm_loss += loss.item()
+    
+  else:
+    print2(f'Training loss: {item_loss/len(iterloader)}')
+    
+# view the prediction
+img, label = next(item(iterloader))
+
+img = img[0].view(1, img.shape[0])
+
+with torch.no_grad():
+  loggit = model.forward(img)
+  
+prob = F.softmax(loggit, dim=1)
+helper.view_classify(img.view(1, 28, 28), prob)                         
+                      
