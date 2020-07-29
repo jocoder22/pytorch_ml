@@ -97,6 +97,41 @@ class MyNeuroNetwork(nn.Module):
     # define the sigmoid and softmax functions
     self.sigmoid = nn.Sigmoid()
     self.softmax = nn.Softmax(dim=1)
+    
+  def forward(self, x):
+    x = self.hidden(x)
+    x = self.Sigmoid(x)
+    x = self.output(x)
+    x = self.Softmax(x)
+    
+    return x
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
        
                                   
                 
