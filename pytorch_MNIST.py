@@ -6,7 +6,7 @@ import numpy as np
 import matplotlab.pyplot as plt
 import helper
 import torch
-from torch import nn
+from torch import nn, optim
 import torch.nn.functional as F
 from torchvision import datasets, transforms
 
@@ -122,10 +122,12 @@ model = nn.Sequential(nn.Linear(784, 128),
                       nn.ReLU(),
                       nn.Linear(128, 64),
                       nn.ReLU(),
-                      nn.Linear(64, 10))
+                      nn.Linear(64, 10),
+                      nn.LogSoftmax(dim=1))
 
 # define loss function
-criterion = nn.CrossEntropyloss()
+# criterion = nn.CrossEntropyloss()
+criterion = nn.NLLLoss()
 
 # create an iterator to read the dataset  
 # img, labels = next(iter(trainloader))
@@ -135,8 +137,11 @@ img, labels = next(iterloader)
 flat1d_img = img.view(img.shape[0], -1)
 
 # forward pass, with flattened input data
-loggit = model(flat1D_img)
+logprobs = model(flat1D_img)
 
 # compute the loss
-loss = criterion(loggit, labels)
+loss = criterion(logprobs, labels)
 print2(loss)
+
+# compute the gradient descent and backward pass
+loss.backward()
