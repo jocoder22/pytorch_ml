@@ -19,6 +19,10 @@ def softmax_activation(x):
       
     Output:
       p: torch.Tensor (probabilities)
+      
+     Numpy Implementation:
+        deno = np.exp(x).sum(axis=1).reshape(-1, 1)
+        return np.divide(np.exp(x), deno)
   
   """
   p = torch.exp(x)/torch.sum(torch.exp(x), dim=1).view(-1, 1)
