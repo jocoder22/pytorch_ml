@@ -19,8 +19,11 @@ transformer = transforms.Compose([Transforms.ToTensor(),
 traindata = datasets.MNIST('MNIST_data/', download=True, train=True, transform=transfomer)
 traindownloader = torch.utils.data.DataLoader(traindata, batch_size=64, shuffle=True)
                                   
-                                 
+# create an iterator to read the dataset                                
+iterloader = iter(trainloader)
+img, labels = iterloader.next()
 
+print2(type(img), type(labels), img.shape, labels.shape)
                                   
                 
                                    
