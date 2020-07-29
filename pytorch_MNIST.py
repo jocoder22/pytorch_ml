@@ -7,6 +7,7 @@ import matplotlab.pyplot as plt
 import helper
 import torch
 from torch import nn
+import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 from printdescribe import print2, describe2, changepath
@@ -95,16 +96,26 @@ class MyNeuroNetwork(nn.Module):
     self.output = nn.Linear(MyNeuroNetwork._neurons, MyNeuroNetwork._output)
     
     # define the sigmoid and softmax functions
-    self.sigmoid = nn.Sigmoid()
-    self.softmax = nn.Softmax(dim=1)
+    #     self.sigmoid = nn.Sigmoid()
+    #     self.softmax = nn.Softmax(dim=1)
+    #     using torch.nn.functional, no need to define sigmoid and softmax function
     
   def forward(self, x):
-    x = self.hidden(x)
-    x = self.Sigmoid(x)
-    x = self.output(x)
-    x = self.Softmax(x)
+    # using torch.nn.functional
+    #     x = self.hidden(x)
+    #     x = self.Sigmoid(x)
+    #    define hidden layer with sigmoid activation function
+    x = F.sigmoid(self.hidden(x))
+    
+    #     x = self.output(x)
+    #     x = self.Softmax(x)
+    #     define output layer with softmax activation function
+    x = F.softmax(self.output(x), dim=1)
     
     return x
+  
+model = MyNeuroNetwork()
+print(model)
     
     
     
