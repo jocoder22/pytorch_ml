@@ -6,6 +6,7 @@ import numpy as np
 import matplotlab.pyplot as plt
 import helper
 import torch
+from torch import nn
 from torchvision import datasets, transforms
 
 from printdescribe import print2, describe2, changepath
@@ -75,7 +76,28 @@ print2(y)
 # apply softmax to get the probabilities
 prob = softmax_activation(y)
 
-print2(prob.shape, type(prob), prob.sum(dim=1), torch.sum(prob, dim=1)
+print2(prob.shape, type(prob), prob.sum(dim=1), torch.sum(prob, dim=1))
+
+# define new class
+class MyNeuroNetwork(nn.Module):
+  
+  _inputs = 784
+  _neuron = 256
+  _output = 10
+  
+  def __init__(self):
+    super().__init__()
+    
+    # define inputs to hidden layer
+    self.hidden = nn.Linear(MyNeuroNetwork._inputs, MyNeuroNetwork._neurons)
+    
+    # define the output layers
+    self.output = nn.Linear(MyNeuroNetwork._neurons, MyNeuroNetwork._output)
+    
+    # define the sigmoid and softmax functions
+    self.sigmoid = nn.Sigmoid()
+    self.softmax = nn.Softmax(dim=1)
+       
                                   
                 
                                    
