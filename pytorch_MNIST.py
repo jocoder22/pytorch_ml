@@ -127,7 +127,8 @@ model = nn.Sequential(nn.Linear(784, 128),
 # define loss function
 criterion = nn.CrossEntropyloss()
 
-# create an iterator to read the dataset                                
+# create an iterator to read the dataset  
+# img, labels = next(iter(trainloader))
 img, labels = next(iterloader)
 
 # Flatten the 2D images to 1D images
