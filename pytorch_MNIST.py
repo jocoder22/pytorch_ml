@@ -11,6 +11,20 @@ from torchvision import datasets, transforms
 from printdescribe import print2, describe2, changepath
 from .ml1o1 import sigmoid_activation
 
+def softmax_activation(x):
+  """ The softmax_activation function
+  
+    Inputs:
+      X: torch.Tensor
+      
+    Output:
+      p: torch.Tensor (probabilities)
+  
+  """
+  p = torch.exp(x)/torch.sum(torch.exp(x), dim=1).view(-1, 1)
+  
+  return p
+
 
 # transformer to transform and normalize
 transformer = transforms.Compose([Transforms.ToTensor(), 
