@@ -114,7 +114,7 @@ class MyNeuroNetwork(nn.Module):
     
     return x
   
-model = MyNeuroNetwork()
+model2 = MyNeuroNetwork()
 print(model)
 
 # create the feed-forward network
@@ -148,3 +148,48 @@ loss.backward()
 
 # initialize the optimizer
 optimin = optim.SGD(model.parameters(), lr=0.01)
+
+#
+# Using model2
+img, labels = next(iter(iterloader))
+
+img.resize_(img.shape[0], -1)
+
+# clear the gradients
+optimin.zero_grad()
+
+# compute the forward pass
+output = model2.forward(img)
+
+# compute loss
+loss = criterion(output, labels)
+
+# compute backward pass
+loss.backward()
+
+# update weights with optimizer
+optimin.step()
+
+
+########################################################################################
+########################################################################################
+epochs = 6
+for epo in range(epochs):
+  iterm_loss = 0
+  for img, labels in iterloader:
+    img.view_(img.shape[0], -1)
+    optimin.zero_grad()
+
+    # compute the forward pass
+    output = model2.forward(img)
+
+    # compute loss
+    loss = criterion(output, labels)
+
+    # compute backward pass
+    loss.backward()
+    
+    iterm_loss += loss.item()
+  else:
+    print2(f'Training loss: {item_loss/len(iterloader}')
+    
