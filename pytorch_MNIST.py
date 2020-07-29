@@ -28,6 +28,11 @@ print2(type(img), type(labels), img.shape, labels.shape)
 # display the image
 plt.imshow(img[1].numpy().squeeze(), cmap="blue_r")
 plt.show()
+
+# Flatten the 2D images to 1D images
+flat1d_img = img.view(img.shape[0], -1)
+
+# create model parameters
                                   
                 
                                    
