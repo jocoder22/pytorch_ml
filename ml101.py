@@ -1,25 +1,10 @@
 #!/usr/bin/env python
 import torch
 from printdescribe import print2, describe2, changepath
-
+from pytorchFunctions import sigmoid_activation
 
 # set the seed
 torch.manual_seed(90)
-
-def sigmoid_activation(x):
-  """ The Sigmoid activation function that result probabilities
-    
-    Input:
-      x: torch.Tensor
-      
-     Output:
-       y: float
-  
-  """
-  
-  y = 1/(1 + torch.exp(-x))
-  
-  return y
 
 # generate features vector
 features = torch.randn((1,10))
@@ -38,7 +23,8 @@ prob = sigmoid_activation(torch.sum(features * weights) + bias)
 
 prob2 = sigmoid_activation(torch.mm(features, weights.view(-1,1)) + bias)
 
-print2(prob, prob2)
+if __name__ == "__main__":
+  print2(prob, prob2)
 
 
 ## y = f2(f1(xW1)W2)

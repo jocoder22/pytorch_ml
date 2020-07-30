@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import torch
 from printdescribe import print2, describe2, changepath
-from .ml1o1 import sigmoid_activation
+from pytorchFunctions import sigmoid_activation
 
 
 # set the seed
@@ -26,9 +26,9 @@ hiddenlayer_bias = torch.randn((1, n_output))
 
 ## y = f2(f1(xW1)W2)
 
-hiddenlayer_output = sigmoid_activation(torch.mm(features,features_weights) + 
-                                          features_bias))
-y = sigmoid_activation(torch.mm(hiddenlayer_output, hiddenlayer_bias) + hiddenlayer_bias)
+hiddenlayer_output = sigmoid_activation(torch.mm(features,feature_weights) + 
+                                          feature_bias)
+y = sigmoid_activation(torch.mm(hiddenlayer_output, hiddenlayer_weights) + hiddenlayer_bias)
 
 print2(y)
 
