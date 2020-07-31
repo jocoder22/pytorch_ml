@@ -73,7 +73,6 @@ print2(prob.shape, type(prob), prob.sum(dim=1), tch.sum(prob, dim=1))
 
 # define new class
 
-
 class MyNeuroNetwork(nn.Module):
 
     _inputs = 784
