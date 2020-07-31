@@ -119,19 +119,19 @@ def traniner(epoo=5):
 
             # store the loss
             iterm_loss += loss.item()
-            
+
             # compute backward pass
             loss.backward()
 
             # update weights
             optimin.step()
 
-
         else:
             print2(
                 f"Epoch {epo+1}/{epochs}..>..>.>  " +
                 f"Training loss:{iterm_loss/len(traindownloader):.4f}"
             )
+
 
 traniner(2)
 
