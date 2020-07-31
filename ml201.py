@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 from printdescribe import print2, describe2, changepath
-from pytorchFunctions import sigmoid_activation, softmax_activation
+
 
 plt.style.use("dark_background")
 
