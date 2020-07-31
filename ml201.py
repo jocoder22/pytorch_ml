@@ -101,7 +101,7 @@ with tch.no_grad():
     # predict the image
     logpreds = model(img)
 
-# compute the probabilities
+# compute the probabilities, our results are log probabilities
 prob = tch.exp_(logpreds)
 
 helper.view_classify(img.view(1, 28, 28), prob)
