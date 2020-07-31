@@ -135,7 +135,6 @@ def traniner(epoo=5):
 # train the neural network
 traniner(2)
 
-
 # use trained model to make prediction
 # load next dataset
 img, label = next(iter(testdownloader))
@@ -150,5 +149,7 @@ with tch.no_grad():
 
 # compute the probabilities, our results are log probabilities
 prob = tch.exp_(logpreds)
+
+# display the results
 helper.view_classify(img, prob, version='Fashion')
 plt.show()
