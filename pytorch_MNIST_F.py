@@ -132,3 +132,22 @@ def traniner(epoo=5):
             )
 
 traniner()
+
+
+# use trained model to make prediction
+# load next dataset
+img, label = next(iter(testdownloader))
+
+# selection image at number 5
+img = img[5]
+
+# turn off the gradients, we are just making predictions
+with tch.no_grad():
+    # predict the image
+    logpreds = model(img)
+
+# compute the probabilities, our results are log probabilities
+prob = tch.exp_(logpreds)
+
+helper.view_classify(img.view(1, 28, 28), prob)
+plt.show()
