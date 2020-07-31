@@ -96,6 +96,7 @@ optimin = optim.Adam(model.parameters(), lr=0.008)
 # transfer model to device
 model.to(device)
 
+# define a trainer function
 def traniner(epoo=5):
     # initialize number of epochs
     epochs = epoo
