@@ -8,7 +8,7 @@ from pytorchFunctions import sigmoid_activation
 torch.manual_seed(90)
 
 # create features
-features = torch.randn((1,10))
+features = torch.randn((1, 10))
 
 # define sizes of layers
 input_size = features.shape[1]
@@ -24,10 +24,13 @@ feature_bias = torch.randn((1, n_hiddenlayers))
 hiddenlayer_bias = torch.randn((1, n_output))
 
 
-## y = f2(f1(xW1)W2)
-hiddenlayer_output = sigmoid_activation(torch.mm(features,feature_weights) + 
-                                          feature_bias)
-y = sigmoid_activation(torch.mm(hiddenlayer_output, hiddenlayer_weights) + hiddenlayer_bias)
+# y = f2(f1(xW1)W2)
+hiddenlayer_output = sigmoid_activation(
+    torch.mm(features, feature_weights) + feature_bias)
+y = sigmoid_activation(
+    torch.mm(
+        hiddenlayer_output,
+        hiddenlayer_weights) +
+    hiddenlayer_bias)
 
 print2(y)
-
