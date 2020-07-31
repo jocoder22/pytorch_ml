@@ -132,7 +132,7 @@ def traniner(epoo=5):
                 f"Training loss:{iterm_loss/len(traindownloader):.4f}"
             )
 
-
+# train the neural network
 traniner(2)
 
 
