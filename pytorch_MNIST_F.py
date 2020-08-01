@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import numpy as np
 import matplotlib.pyplot as plt
 import helper
@@ -27,7 +26,6 @@ traindata = datasets.FashionMNIST(
 traindownloader = tch.utils.data.DataLoader(
     traindata, batch_size=64, shuffle=True
 )
-
 
 # download test dataset
 testdata = datasets.FashionMNIST(
