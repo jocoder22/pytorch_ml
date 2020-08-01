@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # %matplotlab inline
 # %config InlineBackend.fig_format = "retina"
-
 import numpy as np
 import matplotlib.pyplot as plt
 import helper
@@ -72,7 +71,6 @@ prob = softmax_activation(y)
 print2(prob.shape, type(prob), prob.sum(dim=1), tch.sum(prob, dim=1))
 
 # define new class
-
 class MyNeuroNetwork(nn.Module):
 
     _inputs = 784
