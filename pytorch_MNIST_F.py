@@ -46,8 +46,6 @@ helper.imshow(img[10,:])
 print2(label[10])
 plt.show()
 
-
-
 # define new classifier class
 class MyNeuroNetwork(nn.Module):
 
