@@ -23,7 +23,6 @@ hiddenlayer_weights = torch.randn((n_hiddenlayers, n_output))
 feature_bias = torch.randn((1, n_hiddenlayers))
 hiddenlayer_bias = torch.randn((1, n_output))
 
-
 # y = f2(f1(xW1)W2)
 hiddenlayer_output = sigmoid_activation(
     torch.mm(features, feature_weights) + feature_bias)
