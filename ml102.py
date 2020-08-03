@@ -3,7 +3,6 @@ import torch
 from printdescribe import print2, describe2, changepath
 from pytorchFunctions import sigmoid_activation
 
-
 # set the seed
 torch.manual_seed(90)
 
