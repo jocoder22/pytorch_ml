@@ -15,11 +15,9 @@ weights = torch.randn_like(features)
 # generate bias
 bias = torch.randn((1,1))
 
-
 # computer the prediction
 prob = sigmoid_activation(torch.sum(features * weights) + bias)
 # also can do sigmoid_activation((features * weights).sum() + bias)
-
 
 prob2 = sigmoid_activation(torch.mm(features, weights.view(-1,1)) + bias)
 
