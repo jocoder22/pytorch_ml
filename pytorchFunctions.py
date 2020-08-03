@@ -7,8 +7,8 @@ def sigmoid_activation(x):
     Input:
       x: torch.Tensor
       
-     Output:
-       y: float
+    Output:
+      y: float
   
   """
   
@@ -27,8 +27,8 @@ def softmax_activation(x):
       p: torch.Tensor (probabilities)
       
     Numpy Implementation:
-        deno = np.exp(x).sum(axis=1).reshape(-1, 1)
-        return np.divide(np.exp(x), deno)
+      deno = np.exp(x).sum(axis=1).reshape(-1, 1)
+      return np.divide(np.exp(x), deno)
   
   """
   p = torch.exp(x)/torch.sum(torch.exp(x), dim=1).view(-1, 1)
